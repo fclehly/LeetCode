@@ -4,14 +4,24 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
+        if digits == '':
+            return []
         ans = []
-        m = [[' '], ['*'], ['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n', 'o'], ['p', 'q', 'r', 's'], ['t', 'u', 'v'], ['w', 'x', 'y', 'z']]
-        a = ['1', '2']
-        b = ['3', '4']
+        word = []
+        m = [' ', '*', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
+        def dfs(cur):
+            if cur >= len(digits):
+                ans.append(''.join(word))
+            else:
+                for d in m[int(digits[cur])]:
+                    word.append(d)
+                    dfs(cur + 1)
+                    word.pop()
+        dfs(0)
         return ans
         
 
         
 
 s = Solution()
-print(s.letterCombinations('23'))
+print(s.letterCombinations('2345'))
