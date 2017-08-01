@@ -18,7 +18,7 @@ class Solution(object):
             if node.val <= min or node.val >= max:
                 return False
             else:
-                return isValid(node.left, min, root.val) and isValid(node.right, root.val, max)
+                return isValid(node.left, min, node.val) and isValid(node.right, node.val, max)
         return isValid(root, -2 ** 63, 2 ** 63 - 1)
     
 
@@ -26,7 +26,8 @@ def list2tree(l):
     if l == None and len(l) < 1:
         return False
     root = TreeNode(l[0])
-    for 
+    for val in l:
+
 
 s = Solution()
 root = TreeNode(1)
