@@ -9,7 +9,7 @@ class Solution(object):
         s = set()
         for num in nums:
             if num in s:
-                return False
+                return True
             else:
                 s.add(num)
-        return True
+        return False
